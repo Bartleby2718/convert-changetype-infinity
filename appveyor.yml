@@ -1,0 +1,14 @@
+version: 1.0.{build}
+
+image:
+  - Visual Studio 2022
+  - Ubuntu2204  
+
+services:
+  - mssql2017
+
+build_script:
+  - dotnet build
+  
+test_script:
+  - dotnet test --no-build
