@@ -8,8 +8,10 @@ public class Tests
     }
 
     [Test]
-    public void Test1()
+    public void Test1(
+        [Values(typeof(float), typeof(double))] Type numericType,
+        [Values("∞", "-∞")] string infinity)
     {
-        Assert.Pass();
+        Convert.ChangeType(infinity, numericType);
     }
 }
