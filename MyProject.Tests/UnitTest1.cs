@@ -23,4 +23,5 @@ public class Tests
         CultureInfo.CurrentCulture.NumberFormat.NegativeInfinitySymbol,
         "∞",
         "-∞",
+    };
 }
