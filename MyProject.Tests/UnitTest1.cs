@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace MyProject.Tests;
 
 public class Tests
@@ -10,8 +12,15 @@ public class Tests
     [Test]
     public void Test1(
         [Values(typeof(float), typeof(double))] Type numericType,
-        [Values("∞", "-∞")] string infinity)
+        [ValueSource(nameof(Infinities))] string infinity)
     {
         Convert.ChangeType(infinity, numericType);
     }
+
+    private static readonly string[] Infinities =
+    {
+        CultureInfo.CurrentCulture.NumberFormat.PositiveInfinitySymbol,
+        CultureInfo.CurrentCulture.NumberFormat.NegativeInfinitySymbol,
+        "∞",
+        "-∞",
 }
